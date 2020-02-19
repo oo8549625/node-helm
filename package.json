@@ -12,12 +12,7 @@
   },
   "author": "adibenmat",
   "license": "MIT",
-  "keywords": [
-    "helm",
-    "node-helm",
-    "yaml",
-    "kubectl"
-  ],
+  "keywords": ["helm", "node-helm", "yaml", "kubectl"],
   "bugs": {
     "url": "https://github.com/adibenmat/node-helm/issues"
   },
