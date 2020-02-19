@@ -8,7 +8,7 @@ const flattenValuesToString = function (values) {
             valuesString += `${valueSet}=${values[valueSet]},`;
         }
     }
-    return valuesString;        
+    return valuesString;
 };
 
 const flattenObject = function (obj) {
@@ -30,23 +30,23 @@ const flattenObject = function (obj) {
     return toReturn;
 };
 
-function parseResponseToJson(rawData){   
-    try{
+function parseResponseToJson(rawData) {
+    try {
         var splitedData = rawData.split(constants.HelmResponseDelimiter);
-        var jsonData = splitedData.map(function(responseYml){
-            return YAML.parse(responseYml);        
-        }); 
+        var jsonData = splitedData.map(function (responseYml) {
+            return YAML.parse(responseYml);
+        });
         return jsonData;
     }
-    catch(e){
+    catch (e) {
         console.log("could not parse helm response with error: " + e.message);
         //ignore        
         return rawData;
-    }    
+    }
 }
 
 module.exports = {
-    flattenValuesToString : flattenValuesToString,
-    flattenObject : flattenObject,    
-    parseResponseToJson : parseResponseToJson
+    flattenValuesToString: flattenValuesToString,
+    flattenObject: flattenObject,
+    parseResponseToJson: parseResponseToJson
 };
