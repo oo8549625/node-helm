@@ -8,9 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adibenmat/node-helm.git"
+    "url": "https://github.com/oo8549625/node-helm"
   },
-  "author": "adibenmat",
   "license": "MIT",
   "keywords": [
     "helm",
@@ -18,10 +17,6 @@
     "yaml",
     "kubectl"
   ],
-  "bugs": {
-    "url": "https://github.com/adibenmat/node-helm/issues"
-  },
-  "homepage": "https://github.com/adibenmat/node-helm#readme",
   "dependencies": {
     "yamljs": "^0.3.0"
   }
