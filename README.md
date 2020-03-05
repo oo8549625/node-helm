@@ -1,12 +1,5 @@
-# node-helm3
-`node-helm` was created for javascript developers who work with [helm.sh package manager for Kubernetes](https://helm.sh/).
-The package is a wrapper that integrates with the helm.sh process.
+# node-helm 3
 
-## Installation
-
-```
-npm install node-helm
-```
 ## Get Started
 
 Setup your helm.sh file location - for linux or windows
@@ -42,14 +35,14 @@ https://docs.helm.sh/helm/#helm-get
     }
     let history = await helm.getAsync(options);  
 ```
-    /*
-        Available Commands:
-        all         download all information for a named release
-        hooks       download all hooks for a named release
-       manifest    download the manifest for a named release
-       notes       download the notes for a named release
-       values      download the values file for a named release 
-    */
+```
+    Available Commands:
+    all         download all information for a named release
+    hooks       download all hooks for a named release
+   manifest    download the manifest for a named release
+   notes       download the notes for a named release
+   values      download the values file for a named release 
+```
 
 ### Install a service
 https://docs.helm.sh/helm/#helm-install
@@ -60,7 +53,7 @@ let options = {
     namespace: "dev",        
     //custom values
     values: {
-        "authKey":"20FD87EA-A679-4817-AFA4-E5CC17712456"
+        "key":"value"
     }
 };
 return installation = await helm.installAsync(options);  
@@ -75,8 +68,7 @@ https://docs.helm.sh/helm/#helm-upgrade
         chartName: "./ChartFolder",
         releaseName: SERVICENAME,
         values: {
-            "authKey":"20FD87EA-A679-4817-AFA4-E5CC17712456"
-        }
+        "key":"value"
     });  
 ```
 
@@ -84,7 +76,6 @@ https://docs.helm.sh/helm/#helm-upgrade
 https://docs.helm.sh/helm/#helm-delete
 ```
     var options = {
-        shouldPurge : true,
         releaseName: 'service'
     }
     return await helm.deleteAsync(options);
@@ -127,22 +118,4 @@ https://docs.helm.sh/helm/#helm-status
         releaseName = 'service';
     }
     let status = await helm.statusAsync(options);  
-```
-
-## Release Notes
-```
-    19/02/19 - 
-        1. Add basic parent options support to all commands
-        2. Use esversion 6 typing
-
-    11/02/19 - 
-        1. Add 3 methods: test,status,rollback
-        2. Update README
-        3. Update LICENSE
-
-    10/02/19 - 
-        1.Added native object json response for some commands
-        2.Added get release method support
-        3.All methods are now using options variable
-
 ```
