@@ -59,8 +59,8 @@ module.exports = class Helm {
             valuesString = valuesString.slice(0, -1);
             command.push(valuesString);
         }
-        if (options.reuseValues) {
-            command.push('--reuse-values');
+        if (options.resetValues) {
+            command.push('--reset-values');
         }
 
         this.executeCommandByArguments(options, command, done);
