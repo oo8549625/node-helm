@@ -1,4 +1,4 @@
-# node-helm 
+# node-helm3
 `node-helm` was created for javascript developers who work with [helm.sh package manager for Kubernetes](https://helm.sh/).
 The package is a wrapper that integrates with the helm.sh process.
 
@@ -38,9 +38,18 @@ https://docs.helm.sh/helm/#helm-get
 ```
     let options = {
         releaseName = 'service';
+        subCommand: 'all';
     }
     let history = await helm.getAsync(options);  
 ```
+    /*
+        Available Commands:
+        all         download all information for a named release
+        hooks       download all hooks for a named release
+       manifest    download the manifest for a named release
+       notes       download the notes for a named release
+       values      download the values file for a named release 
+    */
 
 ### Install a service
 https://docs.helm.sh/helm/#helm-install
@@ -62,7 +71,7 @@ return installation = await helm.installAsync(options);
 https://docs.helm.sh/helm/#helm-upgrade
 ```
     return await helm.upgradeAsync({
-        reuseValues : shouldReuseValues, //boolean value
+        resetValues : shouldResetValues, //boolean value
         chartName: "./ChartFolder",
         releaseName: SERVICENAME,
         values: {
