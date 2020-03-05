@@ -1,6 +1,6 @@
 {
-  "name": "node-helm",
-  "version": "0.1.0",
+  "name": "k8s-helm3",
+  "version": "v1.0.0",
   "description": "Node helm created for javascript developers that works with helm.sh package manager for Kubernetes.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,12 @@
   },
   "author": "adibenmat",
   "license": "MIT",
-  "keywords": ["helm", "node-helm", "yaml", "kubectl"],
+  "keywords": [
+    "helm",
+    "node-helm",
+    "yaml",
+    "kubectl"
+  ],
   "bugs": {
     "url": "https://github.com/adibenmat/node-helm/issues"
   },
