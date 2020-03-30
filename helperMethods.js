@@ -3,11 +3,20 @@ const constants = require('./constants');
 
 const flattenValuesToString = function (values) {
     var valuesString = '';
+    var subValueString = '';
     for (var valueSet in values) {
         if (values.hasOwnProperty(valueSet)) {
-            valuesString += `${valueSet}=${values[valueSet]},`;
+            if(typeof(values[valueSet])=== 'object'){
+                for(var value in values[valueSet]){
+                    subValueString += `${valueSet}."${value}"=${values[valueSet][value]},`
+                }
+            }
+            else{
+                valuesString += `${valueSet}=${values[valueSet]},`;
+            }
         }
     }
+    valuesString += subValueString
     return valuesString;
 };
 
