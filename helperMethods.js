@@ -9,7 +9,7 @@ const flattenValuesToString = function (values) {
             if(typeof(values[valueSet])=== 'object'){
                 for(var value in values[valueSet]){
                     var subValue = value.replace(/\./g, '\\.')
-                    subValueString += `${valueSet}."${value}"=${subValue},`
+                    subValueString += `${valueSet}."${subValue}"=${values[valueSet][value]},`
                 }
             }
             else{

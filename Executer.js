@@ -1,4 +1,4 @@
-var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
 var constants = require('./constants');
 
 module.exports = class Executer {
@@ -25,18 +25,18 @@ module.exports = class Executer {
     }
 
     execute(args, callback) {
-        let helmProcess = spawn(this.helmCommand, args), stdout = '', stderr = '';
-        helmProcess.stdout.on('data', function (data) {
-            stdout += data;
-        });
-        helmProcess.stderr.on('data', function (data) {
-            stderr += data;
-        });
-        helmProcess.on('close', function (code) {
-            if (!stderr) {
-                stderr = undefined;
+        var command = this.helmCommand
+        for(var num in args){
+            command += ' ' + args[num]
+        }
+        console.log('helm cmd: ' + command)
+        exec(command, (error, stdout, stderr) =>{
+            if(error) {
+                console.error('error: ' + error);
             }
-            callback(stderr, stdout);
+            console.log('stdout: ' + stdout);
+            console.log('stderr: ' + typeof stderr);
+            callback(stderr,stdout)
         });
     }
 }
