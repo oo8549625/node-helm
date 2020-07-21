@@ -13,7 +13,7 @@ if (process.platform === "win32") {
 
 require Helm class
 ```
-const Helm = require("node-helm").Helm;
+const Helm = require("node-helm3").Helm;
 var helm = Promise.promisifyAll(new Helm({helmCommand: helmBinary}));
 ```
 
