@@ -103,6 +103,10 @@ module.exports = class Helm {
             throw new Error("Missing parameter 'releaseName'");
         }
         command.push(options.releaseName);
+        if (options.namespace) {
+            command.push('--namespace');
+            command.push(options.namespace);
+        }
         this.executeCommandByArguments(options, command, done);
     }
 
@@ -112,7 +116,10 @@ module.exports = class Helm {
             throw new Error("Missing parameter 'releaseName'");
         }
         command.push(options.releaseName);
-
+        if (options.namespace) {
+            command.push('--namespace');
+            command.push(options.namespace);
+        }
         this.executeCommandByArguments(options, command, done);
     }
 
@@ -132,7 +139,10 @@ module.exports = class Helm {
             throw new Error("Missing parameter 'releaseName'");
         }
         command.push(options.releaseName);
-
+        if (options.namespace) {
+            command.push('--namespace');
+            command.push(options.namespace);
+        }
         this.executeCommandByArguments(options, command, done);
     }
 
@@ -146,7 +156,10 @@ module.exports = class Helm {
         }
         command.push(options.releaseName);
         command.push(options.revision);
-
+        if (options.namespace) {
+            command.push('--namespace');
+            command.push(options.namespace);
+        }
         this.executeCommandByArguments(options, command, done);
     }
 };

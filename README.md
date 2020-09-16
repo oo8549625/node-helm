@@ -33,6 +33,7 @@ https://docs.helm.sh/helm/#helm-get
 ```
     let options = {
         releaseName = 'service';
+        namespace: "dev",
         subCommand: 'all';
     }
     let history = await helm.getAsync(options);  
@@ -89,7 +90,8 @@ https://docs.helm.sh/helm/#helm-delete
 https://docs.helm.sh/helm/#helm-history
 ```    
     let options = {
-        releaseName = 'service';
+        releaseName = 'service',
+        namespace: "dev"
     }
     let history = await helm.historyAsync(options);  
 ```
@@ -98,7 +100,8 @@ https://docs.helm.sh/helm/#helm-history
 https://docs.helm.sh/helm/#helm-test
 ```    
     let options = {
-        releaseName = 'service'
+        releaseName = 'service',
+        namespace: "dev"
     }
     let test = await helm.testAsync(options);  
 ```
@@ -109,6 +112,7 @@ https://docs.helm.sh/helm/#helm-rollback
 ```    
     let options = {
         releaseName = 'service',
+        namespace: "dev",
         revision: 0
     };
     let rollback = await helm.rollbackAsync(options);  
@@ -119,7 +123,8 @@ https://docs.helm.sh/helm/#helm-rollback
 https://docs.helm.sh/helm/#helm-status
 ```    
     let options = {
-        releaseName = 'service';
+        releaseName = 'service',
+        namespace: "dev"
     }
     let status = await helm.statusAsync(options);  
 ```
