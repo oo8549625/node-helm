@@ -48,6 +48,10 @@ module.exports = class Helm {
         if (options.chartName == null) {
             throw new Error("Missing parameter 'chartName'");
         }
+        if (options.namespace) {
+            command.push('--namespace');
+            command.push(options.namespace);
+        }
         command.push(options.chartName);
         if (options.version) {
             command.push('--version');
@@ -63,6 +67,7 @@ module.exports = class Helm {
             command.push('--reset-values');
         }
 
+
         this.executeCommandByArguments(options, command, done);
     }
 
@@ -72,13 +77,19 @@ module.exports = class Helm {
             throw new Error("Missing parameter 'releaseName'");
         }
         command.push(options.releaseName);
-
+        if (options.namespace) {
+            command.push('--namespace');
+            command.push(options.namespace);
+        }
         this.executeCommandByArguments(options, command, done);
     }
 
     list(options, done) {
         let command = ['list'];
-
+        if (options.namespace) {
+            command.push('--namespace');
+            command.push(options.namespace);
+        }
         this.executeCommandByArguments(options, command, done);
     }
 

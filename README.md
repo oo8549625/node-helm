@@ -67,6 +67,7 @@ https://docs.helm.sh/helm/#helm-upgrade
         resetValues : shouldResetValues, //boolean value
         chartName: "./ChartFolder",
         releaseName: SERVICENAME,
+        namespace: "dev",
         values: {
         "key":"value"
     });  
@@ -76,7 +77,8 @@ https://docs.helm.sh/helm/#helm-upgrade
 https://docs.helm.sh/helm/#helm-delete
 ```
     var options = {
-        releaseName: 'service'
+        releaseName: 'service',
+        namespace: "dev"
     }
     return await helm.deleteAsync(options);
 ```
