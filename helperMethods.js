@@ -6,14 +6,17 @@ const flattenValuesToString = function (values) {
     var subValueString = '';
     for (var valueSet in values) {
         if (values.hasOwnProperty(valueSet)) {
-            if(typeof(values[valueSet])=== 'object'){
-                for(var value in values[valueSet]){
+            if (typeof (values[valueSet]) === 'object') {
+                for (var value in values[valueSet]) {
                     var subValue = value.replace(/\./g, '\\.')
                     subValueString += `${valueSet}."${subValue}"=${values[valueSet][value]},`
                 }
             }
-            else{
-                valuesString += `${valueSet}=${values[valueSet]},`;
+            else {
+                // parse parenthesis 
+                let value = values[valueSet].replace(/\(/g, "\\\(")
+                value = value.replace(/\)/g, "\\\)")
+                valuesString += `${valueSet}=${value},`;
             }
         }
     }
